@@ -59,7 +59,7 @@ h2{font-size:clamp(22px,3.8vw,36px);font-weight:900;line-height:1.25;margin-bott
 .sec-desc{color:var(--muted);font-size:14.5px;line-height:1.8;max-width:620px;margin-bottom:32px}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);position:relative;z-index:1}
 
-.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
 .rv.on{opacity:1;transform:translateY(0)}
 #hero .rv{opacity:1;transform:none;animation:fadeUp .7s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -279,7 +279,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     <div class="avatar">오</div>
     <div>
       <div class="spk-name">오준석 리더</div>
-      <div class="spk-meta">매일유업 CHO 인재개발팀 · junseok.oh@maeil.com</div>
+      <div class="spk-meta">매일유업 CHO 인재개발팀 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e445b405d4b41450041466e434f4b4742004d4143">[email&#160;protected]</a></div>
     </div>
   </div>
   <div class="hero-tags rv" style="animation-delay:.4s">
@@ -583,15 +583,27 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     다만 우리 조직에서, 우리 방식으로, 매일 한 걸음씩 묻고 답하며 걸어온 HRD 담당자입니다.<br>
     <strong style="color:var(--sky)">여러분의 조직도, 여러분만의 속도로 — 그것으로 충분합니다.</strong>
   </div>
-  <div class="footer-info">오준석 리더 · 매일유업 CHO 인재개발팀 · junseok.oh@maeil.com<br>HR exChange 2026 · Track B · AI렌즈로 바라보는 HR · 강의장 103호</div>
+  <div class="footer-info">오준석 리더 · 매일유업 CHO 인재개발팀 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f756a716c7a70743170775f727e7a7673317c7072">[email&#160;protected]</a><br>HR exChange 2026 · Track B · AI렌즈로 바라보는 HR · 강의장 103호</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('prog-bar').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
 
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('on')})},50);
+// 즉시 + 스크롤 양쪽 모두 처리
+function revealAll(){
+  document.querySelectorAll('.rv:not(.on)').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight + 100) el.classList.add('on');
+  });
+}
+// 즉시 실행 (로드 시 보이는 요소)
+revealAll();
+// 스크롤 시 실행
+window.addEventListener('scroll', revealAll, {passive:true});
+// 혹시 늦게 렌더링되는 요소 대비
+setTimeout(revealAll, 100);
+setTimeout(revealAll, 500);
+setTimeout(revealAll, 1000);
 
 const msgs=[
   {t:'항목을 클릭해 우리 조직을 점검해보세요',s:'AX는 도구 도입 전에, 일의 구조를 먼저 보는 것에서 시작합니다'},
@@ -639,10 +651,4 @@ document.querySelectorAll('[data-to]').forEach(el=>coIo.observe(el));
 const barIo=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(!e.isIntersecting)return;setTimeout(()=>{e.target.querySelectorAll('.g-bar[data-w]').forEach(b=>b.style.width=b.dataset.w+'%')},200);barIo.unobserve(e.target)});
 },{threshold:.3});
-document.querySelectorAll('.growth-visual').forEach(el=>barIo.observe(el));
-
-document.getElementById('f-msg').addEventListener('input',function(){document.getElementById('char-cur').textContent=this.value.length});
-
-document.getElementById('contact-form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const n=document.getElementById('f-name').value,o=document.getElementById('f-org').va
+document.querySelectorAll('.growth-visual').forEac
