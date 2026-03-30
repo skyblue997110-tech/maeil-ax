@@ -59,7 +59,7 @@ h2{font-size:clamp(24px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom
 .sec-desc{color:var(--muted);font-size:16px;line-height:1.8;max-width:620px;margin-bottom:32px}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);position:relative;z-index:1}
 
-.rv{opacity:1;transform:none}
+.rv{opacity:1 !important;transform:none !important}
 #hero .rv{animation:fadeUp .7s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
@@ -107,8 +107,9 @@ h1{font-size:clamp(32px,6.5vw,68px);font-weight:900;line-height:1.1;margin-botto
 .chk-item{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;transition:border-color .2s,background .2s;user-select:none}
 .chk-item:hover{border-color:rgba(72,101,254,.45)}
 .chk-item.on{background:rgba(15,200,235,.07);border-color:rgba(15,200,235,.38)}
-.chk-box{width:22px;height:22px;border-radius:6px;flex-shrink:0;border:2px solid rgba(72,101,254,.45);display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px;transition:all .2s}
+.chk-box{width:22px;height:22px;border-radius:6px;flex-shrink:0;border:2px solid rgba(72,101,254,.45);display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px;transition:all .2s;color:transparent}
 .chk-item.on .chk-box{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent;color:#fff}
+.chk-item.on .chk-box::after{content:'✓'}
 .chk-q{font-weight:700;font-size:15.5px;color:var(--white);transition:color .2s}
 .chk-item.on .chk-q{text-decoration:line-through;color:var(--muted)}
 .chk-desc{font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.6}
@@ -147,10 +148,10 @@ h1{font-size:clamp(32px,6.5vw,68px);font-weight:900;line-height:1.1;margin-botto
 .g-row:last-child{margin-bottom:0}
 .g-period{font-family:var(--mono);font-size:10px;color:var(--muted);width:90px;flex-shrink:0;letter-spacing:.06em}
 .g-bw{flex:1;height:36px;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden;position:relative}
-.g-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:12px;font-weight:700;font-size:13px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
-.g-bar.b1{background:linear-gradient(90deg,rgba(72,101,254,.5),rgba(72,101,254,.3));color:var(--periwinkle)}
-.g-bar.b2{background:linear-gradient(90deg,rgba(72,101,254,.75),rgba(15,200,235,.5));color:var(--sky)}
-.g-bar.b3{background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff}
+.g-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:12px;font-weight:700;font-size:15px;width:100%}
+.g-bar.b1{background:linear-gradient(90deg,rgba(72,101,254,.6),rgba(72,101,254,.4));color:#fff;min-width:60px}
+.g-bar.b2{background:linear-gradient(90deg,rgba(72,101,254,.85),rgba(15,200,235,.6));color:#fff;min-width:120px}
+.g-bar.b3{background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;min-width:100%}
 .g-lbl{font-size:11px;color:var(--muted);width:56px;text-align:right;flex-shrink:0}
 
 /* CASES */
@@ -199,7 +200,8 @@ h1{font-size:clamp(32px,6.5vw,68px);font-weight:900;line-height:1.1;margin-botto
 .c3-item{background:rgba(13,32,80,.6);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:left}
 .c3-lbl{font-family:var(--mono);font-size:9px;color:var(--cyan);margin-bottom:6px;letter-spacing:.1em}
 
-/* FAQ */
+.__cf_email__{display:none!important}
+
 .faq-list{display:flex;flex-direction:column;gap:8px}
 .faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .faq-q{padding:16px 20px;font-weight:700;font-size:15.5px;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
@@ -278,7 +280,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     <div class="avatar">오</div>
     <div>
       <div class="spk-name">오준석 리더</div>
-      <div class="spk-meta">매일유업 CHO 인재개발팀 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e445b405d4b41450041466e434f4b4742004d4143">[email&#160;protected]</a></div>
+      <div class="spk-meta">매일유업 CHO 인재개발팀 · junseok.oh@maeil.com</div>
     </div>
   </div>
   <div class="hero-tags rv" style="animation-delay:.4s">
@@ -336,7 +338,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
   </div>
   <div class="chk-list rv">
     <div class="chk-item" data-i="0">
-      <div class="chk-box">✓</div>
+      <div class="chk-box"></div>
       <div style="flex:1">
         <div class="chk-q">Q1. 우리 조직의 시간은 어디에 쓰이고 있는가?</div>
         <div class="chk-desc">반복·보고·취합·행정 업무의 비중이 보이는가. 데이터로 비효율을 확인하는 것이 AX의 출발점입니다.</div>
@@ -344,7 +346,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
       </div>
     </div>
     <div class="chk-item" data-i="1">
-      <div class="chk-box">✓</div>
+      <div class="chk-box"></div>
       <div style="flex:1">
         <div class="chk-q">Q2. 구성원은 무엇을 줄이고 싶어하는가?</div>
         <div class="chk-desc">현업이 체감하는 비효율과 Pain Point가 드러나 있는가. AX의 시작은 경영진보다 현장의 불편함이어야 합니다.</div>
@@ -352,7 +354,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
       </div>
     </div>
     <div class="chk-item" data-i="2">
-      <div class="chk-box">✓</div>
+      <div class="chk-box"></div>
       <div style="flex:1">
         <div class="chk-q">Q3. 리더는 그 문제를 알고 있는가?</div>
         <div class="chk-desc">방향 메시지와 변화 필요성 공감이 형성돼 있는가. 탑다운 방향 없이 바텀업만으로는 변화의 속도가 더딥니다.</div>
@@ -360,7 +362,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
       </div>
     </div>
     <div class="chk-item" data-i="3">
-      <div class="chk-box">✓</div>
+      <div class="chk-box"></div>
       <div style="flex:1">
         <div class="chk-q">Q4. 작게라도 실행할 수 있는 구조가 있는가?</div>
         <div class="chk-desc">파일럿·실험처럼 부담 없이 시작할 수 있는 장치가 있는가. 먼저 관심 있는 사람을 찾고 지원하면 됩니다.</div>
@@ -368,7 +370,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
       </div>
     </div>
     <div class="chk-item" data-i="4">
-      <div class="chk-box">✓</div>
+      <div class="chk-box"></div>
       <div style="flex:1">
         <div class="chk-q">Q5. 그 경험이 조직에 남는가?</div>
         <div class="chk-desc">개인 노하우로 끝나지 않고 공유·교육·아카이브 등 재사용 가능한 채널이 있는가. 자산화가 없으면 지속성이 없습니다.</div>
@@ -410,21 +412,39 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
   <div class="sec-label rv">매일유업 AX 주요 수치</div>
   <h2 class="rv"><span class="g-text">숫자로 보는 변화의 흔적</span></h2>
   <div class="stats6 rv">
-    <div class="stat-card"><div class="stat-num">54.5%</div><div class="stat-lbl">행정·보고·회의 업무 비중</div><div class="stat-sub">154개 팀, 28만 건 데이터 기반<br>전략/기획 업무는 7.9%</div></div>
-    <div class="stat-card"><div class="stat-num">5.3배</div><div class="stat-lbl">AX 과제 참여 폭발적 성장</div><div class="stat-sub">9건(25년 3월) → 25건 → 48건(26년 2월)</div></div>
-    <div class="stat-card"><div class="stat-num">67.9%</div><div class="stat-lbl">하루 1시간 이상 업무시간 단축</div><div class="stat-sub">연간 약 19,440시간 이상 기회비용 확보</div></div>
-    <div class="stat-card"><div class="stat-num">69.2%</div><div class="stat-lbl">"AI 툴이 업무에 도움" 긍정 평가</div><div class="stat-sub">KPC AX 트렌드 조사 대비 높은 수준</div></div>
-    <div class="stat-card"><div class="stat-num">98.3%</div><div class="stat-lbl">동료에게 AI 툴 추천 의향</div><div class="stat-sub">수용성 측면 "변화에 대한 긍정 시그널"</div></div>
-    <div class="stat-card"><div class="stat-num">27건</div><div class="stat-lbl">AX 꿀팁 뉴스레터 발행</div><div class="stat-sub">24년 7월~25년 12월<br>원데이클래스 8과정 · 138명</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="54.5" data-sfx="%">0%</div><div class="stat-lbl">행정·보고·회의 업무 비중</div><div class="stat-sub">154개 팀, 28만 건 데이터 기반<br>전략/기획 업무는 7.9%</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="5.3" data-sfx="배">0배</div><div class="stat-lbl">AX 과제 참여 폭발적 성장</div><div class="stat-sub">9건(25년 3월) → 25건 → 48건(26년 2월)</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="67.9" data-sfx="%">0%</div><div class="stat-lbl">하루 1시간 이상 업무시간 단축</div><div class="stat-sub">연간 약 19,440시간 이상 기회비용 확보</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="69.2" data-sfx="%">0%</div><div class="stat-lbl">"AI 툴이 업무에 도움" 긍정 평가</div><div class="stat-sub">KPC AX 트렌드 조사 대비 높은 수준</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="98.3" data-sfx="%">0%</div><div class="stat-lbl">동료에게 AI 툴 추천 의향</div><div class="stat-sub">수용성 측면 "변화에 대한 긍정 시그널"</div></div>
+    <div class="stat-card"><div class="stat-num" data-val="27" data-sfx="건">0건</div><div class="stat-lbl">AX 꿀팁 뉴스레터 발행</div><div class="stat-sub">24년 7월~25년 12월<br>원데이클래스 8과정 · 138명</div></div>
   </div>
   <div class="note rv">* 2025년 매일유업 내부 조사 기준 (AI 활용 현황 조사, 25년 8월)</div>
 
   <div style="margin-top:24px" class="rv">
-    <div class="sec-label" style="margin-bottom:12px">공모전 참여 성장</div>
+    <div class="sec-label" style="margin-bottom:12px">AX 과제로 보는 매일 AX</div>
     <div class="growth-visual">
-      <div class="g-row"><div class="g-period">25년 3월</div><div class="g-bw"><div class="g-bar b1" style="width:19%">9건</div></div><div class="g-lbl">9건</div></div>
-      <div class="g-row"><div class="g-period">25년 12월</div><div class="g-bw"><div class="g-bar b2" style="width:52%">25건</div></div><div class="g-lbl">25건</div></div>
-      <div class="g-row"><div class="g-period">26년 2월</div><div class="g-bw"><div class="g-bar b3" style="width:100%">48건</div></div><div class="g-lbl">48건 🎉</div></div>
+      <div class="g-row">
+        <div class="g-period">25년 3월</div>
+        <div class="g-bw">
+          <div style="height:100%;width:19%;background:linear-gradient(90deg,#4865FE,#6880FF);border-radius:6px;display:flex;align-items:center;padding-left:10px;font-weight:700;font-size:14px;color:#fff;min-width:48px">9건</div>
+        </div>
+        <div class="g-lbl">9건</div>
+      </div>
+      <div class="g-row">
+        <div class="g-period">25년 12월</div>
+        <div class="g-bw">
+          <div style="height:100%;width:52%;background:linear-gradient(90deg,#4865FE,#0FC8EB);border-radius:6px;display:flex;align-items:center;padding-left:10px;font-weight:700;font-size:14px;color:#fff;min-width:80px">25건</div>
+        </div>
+        <div class="g-lbl">25건</div>
+      </div>
+      <div class="g-row">
+        <div class="g-period">26년 2월</div>
+        <div class="g-bw">
+          <div style="height:100%;width:100%;background:linear-gradient(90deg,#4865FE,#0FC8EB);border-radius:6px;display:flex;align-items:center;padding-left:10px;font-weight:700;font-size:14px;color:#fff">48건 🎉</div>
+        </div>
+        <div class="g-lbl">48건 🎉</div>
+      </div>
     </div>
     <div style="text-align:center;font-size:12px;color:var(--muted)">어려워졌는데 5.3배 늘었다 — 조직의 태도가 달라졌다는 신호</div>
   </div>
@@ -532,7 +552,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     <div class="faq-item"><div class="faq-q">전담 AI 조직이 없어도 정말 시작할 수 있나요?<span class="faq-arrow">+</span></div><div class="faq-a">네, 매일유업도 CHO 인재개발팀 HR 담당자 1명이 추진했습니다. 오히려 비전공자였기 때문에 "기술이 무엇인가"보다 "왜 이 일을 하는가"라는 본질적 질문으로 시작할 수 있었습니다. HR은 구성원들이 스스로 해답을 찾도록 판을 까는 '변화 설계자(Change Designer)'가 되어야 합니다.</div></div>
     <div class="faq-item"><div class="faq-q">전사 과업조사는 어떻게 설계하고 진행했나요?<span class="faq-arrow">+</span></div><div class="faq-a">2025년 6월, 2주간 154개 팀 전체. 팀별 프로필(부서장)과 개인별 과업 조사(구성원) 두 트랙 운영. 핵심과업·세부활동·소요시간·업무비중 직접 기록. 강화·축소·유지 방향 스스로 판단. AI(매크로+생성형)로 28만 건 분류·집계. 양식 자료는 아래 문의 양식으로 요청해주세요.</div></div>
     <div class="faq-item"><div class="faq-q">구성원의 저항은 어떻게 다뤘나요?<span class="faq-arrow">+</span></div><div class="faq-a">"당장 내 일자리가 없어지는 거 아닌가요?", "AI가 만능이 아닙니다!", "지금도 바빠 죽겠는데 배울 시간이 어디 있어요" — 이런 반응은 당연했습니다. ① 데이터 기반 투명한 소통(일자리 대체가 아닌 비효율 업무 대체), ② OKR 연계(일방식 개선항목 목표 10% 반영 권장), ③ 내부 챔피언 모델(사내 Best Case 발굴 및 자발적 참여 유도). "저항은 변화가 실제 작동한다는 신호"라고 생각했습니다.</div></div>
-    <div class="faq-item"><div class="faq-q">우수사례 공모는 어떤 방식으로 운영했나요?<span class="faq-arrow">+</span></div><div class="faq-a">2025년 2월 원페이지 공모(9건) → 9월 우수사례 공모(25건, PPT 10장) → 2026년 심화 제안서(6장 이상, 48건). 단순 AI 활용이 아닌 Work Re:Design 방향의 '업무 혁신 사례'에 집중. 어려워졌는데 5.3배 늘었다는 것 자체가 조직 태도 변화의 신호. 포상이 목적이 아니라 "AI를 활용한 시도가 가치 있다"는 신호를 보내는 것이 핵심이었습니다.</div></div>
+    <div class="faq-item"><div class="faq-q">우수사례 공모는 어떤 방식으로 운영했나요?<span class="faq-arrow">+</span></div><div class="faq-a">2025년 2월 참여 문턱을 낮추기 위해 원페이지 양식으로 시작(9건) → 9월 우수사례 공모(25건, PPT 10장) → 2026년 심화 제안서(6장 이상, 48건). 단순 AI 활용이 아닌 Work Re:Design 방향의 '업무 혁신 사례'에 집중. 어려워졌는데 5.3배 늘었다는 것 자체가 조직 태도 변화의 신호. 포상이 목적이 아니라 "AI를 활용한 시도가 가치 있다"는 신호를 보내는 것이 핵심이었습니다.</div></div>
     <div class="faq-item"><div class="faq-q">원데이클래스는 어떻게 운영했나요?<span class="faq-arrow">+</span></div><div class="faq-a">전문 강사가 아닌, 사내 구성원이 직접 만든 클래스. VBA & GenAI 활용 엑셀 업무 자동화 등 8개 과정. "나도 하나는 해봤다" 상태 만들기에 집중 → 만족도 4.88점, 138명 참석. "전문가가 아니어도 됩니다. 한 발 앞서 해본 동료면 충분합니다."</div></div>
     <div class="faq-item"><div class="faq-q">실무 양식이나 자료를 받아볼 수 있나요?<span class="faq-arrow">+</span></div><div class="faq-a">아래 문의 양식을 통해 요청해주시면 공유 가능한 범위에서 제공합니다. 과업조사 양식, Work Re:Design 워크숍 사전과제 구조, AX 공모전 제안서 양식, 원데이클래스 운영 방법 등에 대해 질문해주세요.</div></div>
   </div>
@@ -563,7 +583,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     </div>
     <div class="form-actions">
       <button type="submit" class="submit-btn">질문 보내기 →</button>
-      <a href="/cdn-cgi/l/email-protection#a1cbd4cfd2c4ceca8fcec9e1ccc0c4c8cd8fc2cecc" class="email-direct">✉ <span class="__cf_email__" data-cfemail="2f455a415c4a40440140476f424e4a4643014c4042">[email&#160;protected]</span></a>
+      <a href="mailto:junseok.oh@maeil.com" class="email-direct">✉ junseok.oh@maeil.com</a>
     </div>
   </form>
   <div class="success-msg" id="success-msg">
@@ -582,56 +602,125 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
     다만 우리 조직에서, 우리 방식으로, 매일 한 걸음씩 묻고 답하며 걸어온 HRD 담당자입니다.<br>
     <strong style="color:var(--sky)">여러분의 조직도, 여러분만의 속도로 — 그것으로 충분합니다.</strong>
   </div>
-  <div class="footer-info">오준석 리더 · 매일유업 CHO 인재개발팀 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f756a716c7a70743170775f727e7a7673317c7072">[email&#160;protected]</a><br>HR exChange 2026 · Track B · AI렌즈로 바라보는 HR · 강의장 103호</div>
+  <div class="footer-info">오준석 리더 · 매일유업 CHO 인재개발팀 · junseok.oh@maeil.com<br>HR exChange 2026 · Track B · AI렌즈로 바라보는 HR · 강의장 103호</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('prog-bar').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+<script>
+// 스크롤 진행바
+window.addEventListener('scroll',function(){
+  var d=document.documentElement;
+  var bar=document.getElementById('prog-bar');
+  if(bar) bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+});
 
-const msgs=[
+// 카운트업
+function countUp(el){
+  if(el.dataset.done) return;
+  el.dataset.done='1';
+  var target=parseFloat(el.dataset.val);
+  var sfx=el.dataset.sfx||'';
+  var dec=String(target).indexOf('.')>-1;
+  var cur=0, inc=target/110;
+  var t=setInterval(function(){
+    cur+=inc;
+    if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=(dec?cur.toFixed(1):Math.floor(cur))+sfx;
+  },16);
+}
+function checkCounters(){
+  document.querySelectorAll('.stat-num[data-val]').forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight) countUp(el);
+  });
+}
+window.addEventListener('scroll',checkCounters);
+window.addEventListener('load',checkCounters);
+setTimeout(checkCounters,500);
+
+// 체크리스트
+var msgs=[
   {t:'항목을 클릭해 우리 조직을 점검해보세요',s:'AX는 도구 도입 전에, 일의 구조를 먼저 보는 것에서 시작합니다'},
-  {t:'시작을 위한 첫 발을 내딛고 있습니다 🌱',s:'나머지 질문들도 함께 점검해보세요'},
-  {t:'변화의 씨앗이 보입니다 🌿',s:'기반을 만드는 단계입니다. 조금씩 구조를 잡아가세요'},
+  {t:'시작을 위한 첫 발을 내딛고 있습니다 👣',s:'나머지 질문들도 함께 점검해보세요'},
+  {t:'변화의 씨앗이 보입니다 🌱',s:'기반을 만드는 단계입니다. 조금씩 구조를 잡아가세요'},
   {t:'절반이 갖춰졌습니다 👍',s:'실행 장치와 확산 구조를 더해보세요'},
   {t:'AX 추진 준비가 잘 되어 있습니다! 🚀',s:'이제 실행을 자산으로 연결하는 단계입니다'},
   {t:'완벽한 준비! 지금 시작하세요 🎉',s:'우리만의 속도로, 지금 바로 시작할 수 있습니다'}
 ];
-let checked=new Set();
-document.querySelectorAll('.chk-item').forEach(item=>{
-  item.addEventListener('click',()=>{
-    const i=+item.dataset.i;
-    if(checked.has(i))checked.delete(i);else checked.add(i);
-    item.classList.toggle('on',checked.has(i));
-    const n=checked.size;
-    document.getElementById('prog-fill').style.width=(n/5*100)+'%';
-    document.getElementById('prog-lbl').textContent=`조직 준비도 체크 ${n}/5`;
-    document.getElementById('result-title').textContent=msgs[n].t;
-    document.getElementById('result-sub').textContent=msgs[n].s;
+var checked=new Set();
+document.querySelectorAll('.chk-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    var i=parseInt(item.getAttribute('data-i'));
+    if(checked.has(i)) checked.delete(i); else checked.add(i);
+    item.classList.toggle('on', checked.has(i));
+    var n=checked.size;
+    var fill=document.getElementById('prog-fill');
+    var lbl=document.getElementById('prog-lbl');
+    var rt=document.getElementById('result-title');
+    var rs=document.getElementById('result-sub');
+    if(fill) fill.style.width=(n/5*100)+'%';
+    if(lbl) lbl.textContent='조직 준비도 체크 '+n+'/5';
+    if(rt) rt.textContent=msgs[n].t;
+    if(rs) rs.textContent=msgs[n].s;
   });
 });
 
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
+// 탭
+document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
+var initP=document.getElementById('tab-all');
+if(initP) initP.style.display='block';
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('on');});
+    document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
     btn.classList.add('on');
-    document.getElementById('tab-'+btn.dataset.tab).classList.add('on');
+    var panel=document.getElementById('tab-'+btn.dataset.tab);
+    if(panel) panel.style.display='block';
   });
 });
 
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('on')));
-
-const coIo=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    const el=e.target,to=parseFloat(el.dataset.to),sfx=el.dataset.sfx||'',dec=String(to).includes('.');
-    let cur=0;const t=setInterval(()=>{cur+=to/(1600/16);if(cur>=to){cur=to;clearInterval(t)}el.textContent=(dec?cur.toFixed(1):Math.floor(cur))+sfx},16);
-    coIo.unobserve(el);
+// FAQ
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click',function(){
+    var isOpen=item.classList.contains('on');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('on');});
+    if(!isOpen) item.classList.add('on');
   });
-},{threshold:.5});
-document.querySelectorAll('[data-to]').forEach(el=>coIo.observe(el));
+});
 
-const barIo=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(!e.isIntersecting)return;setTimeout(()=>{e.target.querySelectorAll('.g-bar[data-w]').forEach(b=>b.style.width=b.dataset.w+'%')},200);barIo.unobserve(e.target)});
-},{threshold:.3});
-document.querySelectorAll('.growth-visual').forEac
+// 막대 차트
+function checkBars(){
+  var wrap=document.querySelector('.growth-visual');
+  if(!wrap||wrap.dataset.done) return;
+  if(wrap.getBoundingClientRect().top < window.innerHeight){
+    wrap.dataset.done='1';
+    wrap.querySelectorAll('.g-bar[data-w]').forEach(function(b,i){
+      setTimeout(function(){b.style.width=b.dataset.w+'%';},200+i*300);
+    });
+  }
+}
+window.addEventListener('scroll',checkBars);
+setTimeout(checkBars,500);
+
+// 폼 제출
+var form=document.getElementById('contact-form');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('f-name').value;
+    var o=document.getElementById('f-org').value;
+    var em=document.getElementById('f-email').value;
+    var ty=document.getElementById('f-type').value;
+    var m=document.getElementById('f-msg').value;
+    window.location.href='mailto:junseok.oh@maeil.com?subject='+encodeURIComponent('[HR exChange 2026] '+ty+' - '+n)+'&body='+encodeURIComponent('이름: '+n+'\n소속: '+o+'\n이메일: '+em+'\n문의유형: '+ty+'\n\n내용:\n'+m);
+    form.style.display='none';
+    var s=document.getElementById('success-msg');
+    if(s) s.style.display='block';
+  });
+  var msg=document.getElementById('f-msg');
+  if(msg) msg.addEventListener('input',function(){
+    var c=document.getElementById('char-cur');
+    if(c) c.textContent=msg.value.length;
+  });
+}
+</script>
+</body>
+</html>
